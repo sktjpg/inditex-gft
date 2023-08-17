@@ -10,7 +10,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.icekome</groupId>
-  <artifactId>inditex</artifactId>
+  <artifactId>inditex-gft</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>inditex</name>
   <description>inditex</description>
