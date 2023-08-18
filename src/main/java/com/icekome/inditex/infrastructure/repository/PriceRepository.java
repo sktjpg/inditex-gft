@@ -14,8 +14,8 @@ public interface PriceRepository extends JpaRepository<PriceRepositoryModel, Lon
       "AND p.priceList = :productList AND p.brandId = :brandId")
   List<PriceRepositoryModel> findByDateAndPriceListAndBrandId(
       LocalDateTime date,
-      Integer productList,
-      Integer brandId
+      int productList,
+      int brandId
   );
 
 

@@ -12,13 +12,9 @@ public record H2PriceFinder(
 ) implements PriceFinder {
 
   @Override
-  public List<Price> findBy(LocalDate date, Integer productList, Integer brandId) {
+  public List<Price> findBy(LocalDate date, int productList, int brandId) {
     return priceRepository
-        .findByDateAndPriceListAndBrandId(
-            date.atStartOfDay(),
-            productList,
-            brandId
-        )
+        .findByDateAndPriceListAndBrandId(date.atStartOfDay(), productList, brandId)
         .stream()
         .map(this::toDomain)
         .toList();

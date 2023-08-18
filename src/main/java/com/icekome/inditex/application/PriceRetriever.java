@@ -8,9 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public record PriceRetriever(PriceFinder priceFinder) {
 
-  public List<Price> findPrice(LocalDate date,
-      Integer productList,
-      Integer chainId) {
+  public List<Price> findPrice(LocalDate date, int productList, int chainId) {
     return priceFinder.findBy(date, productList, chainId);
   }
 
