@@ -2,7 +2,7 @@ package com.icekome.inditex.infrastructure.repository;
 
 import com.icekome.inditex.application.PriceFinder;
 import com.icekome.inditex.domain.Price;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +12,9 @@ public record H2PriceFinder(
 ) implements PriceFinder {
 
   @Override
-  public List<Price> findBy(LocalDate date, long productId, long brandId) {
+  public List<Price> findBy(LocalDateTime date, long productId, long brandId) {
     return priceRepository
-        .findByDateAndPriceListAndBrandId(date.atStartOfDay(), productId, brandId)
+        .findByDateAndPriceListAndBrandId(date, productId, brandId)
         .stream()
         .map(this::toDomain)
         .toList();

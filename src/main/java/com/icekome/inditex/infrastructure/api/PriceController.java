@@ -2,7 +2,7 @@ package com.icekome.inditex.infrastructure.api;
 
 import com.icekome.inditex.application.PriceRetriever;
 import com.icekome.inditex.domain.Price;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +19,9 @@ public record PriceController(
 
   @GetMapping()
   public ResponseEntity<List<PriceControllerModel>> findPrice(
-      @RequestParam("applicationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate applicationDate,
-      @RequestParam("productId") long productId,
-      @RequestParam("chainId") long chainId
+      @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime applicationDate,
+      @RequestParam long productId,
+      @RequestParam long chainId
   ) {
     return ResponseEntity.ok(
         priceRetriever
