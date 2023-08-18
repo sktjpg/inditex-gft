@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/prices")
-public record TestController(
+public record PriceController(
     PriceRetriever priceRetriever
 ) {
 
