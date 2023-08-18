@@ -18,7 +18,7 @@ public record PriceController(
 ) {
 
   @GetMapping()
-  public ResponseEntity<List<PriceControllerModel>> getPriceQuery(
+  public ResponseEntity<List<PriceControllerModel>> findPrice(
       @RequestParam("applicationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate applicationDate,
       @RequestParam("productId") long productId,
       @RequestParam("chainId") long chainId
