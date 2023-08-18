@@ -3,7 +3,6 @@ package com.icekome.inditex.infrastructure.repository;
 import com.icekome.inditex.application.PriceFinder;
 import com.icekome.inditex.domain.Price;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
