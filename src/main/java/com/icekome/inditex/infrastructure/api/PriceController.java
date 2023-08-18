@@ -18,14 +18,28 @@ public record PriceController(
 ) {
 
   @GetMapping()
-  public ResponseEntity<List<Price>> getPriceQuery(
+  public ResponseEntity<List<PriceControllerModel>> getPriceQuery(
       @RequestParam("applicationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate applicationDate,
       @RequestParam("productId") Integer productId,
-      @RequestParam("chainId") Integer chainId) {
-
+      @RequestParam("chainId") Integer chainId
+  ) {
     return ResponseEntity.ok(
         priceRetriever
             .findPrice(applicationDate, productId, chainId)
+            .stream()
+            .map(this::toControllerModel)
+            .toList()
+    );
+  }
+
+  private PriceControllerModel toControllerModel(Price it) {
+    return new PriceControllerModel(
+        it.productId(),
+        it.chainId(),
+        it.price(),
+        it.currency(),
+        it.startDate(),
+        it.endDate()
     );
   }
 

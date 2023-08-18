@@ -5,10 +5,11 @@ import java.time.LocalDateTime;
 
 public record Price(
     Long id,
+    Long productId,
     LocalDateTime startDate,
     LocalDateTime endDate,
     Integer productList,
-    Integer chainId,
+    Long chainId,
     BigDecimal price,
     String currency
 ) {

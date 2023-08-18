@@ -23,6 +23,7 @@ public record H2PriceFinder(
   private Price toDomain(PriceRepositoryModel priceRepositoryModel) {
     return new Price(
         priceRepositoryModel.getId(),
+        priceRepositoryModel.getProductId(),
         priceRepositoryModel.getStartDate(),
         priceRepositoryModel.getEndDate(),
         priceRepositoryModel.getPriceList(),

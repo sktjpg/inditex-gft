@@ -23,7 +23,7 @@ public class PriceRepositoryModel {
   private Long id;
 
   @Column(name = "BRAND_ID")
-  private Integer brandId;
+  private Long brandId;
 
   @Column(name = "START_DATE")
   private LocalDateTime startDate;
@@ -32,13 +32,13 @@ public class PriceRepositoryModel {
   private LocalDateTime endDate;
 
   @Column(name = "PRICE_LIST")
-  private Integer priceList;
+  private int priceList;
 
   @Column(name = "PRODUCT_ID")
-  private Integer productId;
+  private Long productId;
 
   @Column(name = "PRIORITY")
-  private Integer priority;
+  private int priority;
 
   @Column(name = "PRICE")
   private BigDecimal price;
