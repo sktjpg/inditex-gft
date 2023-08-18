@@ -11,11 +11,11 @@ public interface PriceRepository extends JpaRepository<PriceRepositoryModel, Lon
 
   @Query("SELECT p FROM PriceRepositoryModel p " +
       "WHERE (p.startDate <= :date AND p.endDate >= :date) " +
-      "AND p.priceList = :productList AND p.brandId = :brandId")
+      "AND p.productId = :productId AND p.brandId = :brandId")
   List<PriceRepositoryModel> findByDateAndPriceListAndBrandId(
       LocalDateTime date,
-      int productList,
-      int brandId
+      long productId,
+      long brandId
   );
 
 

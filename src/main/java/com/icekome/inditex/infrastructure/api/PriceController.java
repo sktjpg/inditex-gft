@@ -20,8 +20,8 @@ public record PriceController(
   @GetMapping()
   public ResponseEntity<List<PriceControllerModel>> getPriceQuery(
       @RequestParam("applicationDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate applicationDate,
-      @RequestParam("productId") Integer productId,
-      @RequestParam("chainId") Integer chainId
+      @RequestParam("productId") long productId,
+      @RequestParam("chainId") long chainId
   ) {
     return ResponseEntity.ok(
         priceRetriever

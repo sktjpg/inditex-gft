@@ -8,8 +8,8 @@ public interface PriceFinder {
 
   List<Price> findBy(
       LocalDate date,
-      int productList,
-      int chainId
+      long productList,
+      long chainId
   );
 
 }
