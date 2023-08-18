@@ -32,14 +32,14 @@ public record PriceController(
     );
   }
 
-  private PriceControllerModel toControllerModel(Price it) {
+  private PriceControllerModel toControllerModel(Price price) {
     return new PriceControllerModel(
-        it.productId(),
-        it.chainId(),
-        it.price(),
-        it.currency(),
-        it.startDate(),
-        it.endDate()
+        price.productId(),
+        price.chainId(),
+        price.price(),
+        price.currency(),
+        price.startDate(),
+        price.endDate()
     );
   }
 
