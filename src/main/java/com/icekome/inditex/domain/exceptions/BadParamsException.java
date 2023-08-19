@@ -1,8 +1,8 @@
 package com.icekome.inditex.domain.exceptions;
 
-public class IncorrectParametersException extends RuntimeException {
+public class BadParamsException extends RuntimeException {
 
-  public IncorrectParametersException(String message) {
+  public BadParamsException(String message) {
     super(message);
   }
 }

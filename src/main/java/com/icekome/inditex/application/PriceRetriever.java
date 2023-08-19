@@ -1,6 +1,6 @@
 package com.icekome.inditex.application;
 
-import com.icekome.inditex.domain.exceptions.IncorrectParametersException;
+import com.icekome.inditex.domain.exceptions.BadParamsException;
 import com.icekome.inditex.domain.exceptions.NotFoundException;
 import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
@@ -45,7 +45,7 @@ public record PriceRetriever(PriceFinder priceFinder) {
     }
 
     String message = "The following params are not valid: " + String.join(" - ", errors);
-    throw new IncorrectParametersException(message);
+    throw new BadParamsException(message);
   }
 
 }
