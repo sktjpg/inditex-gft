@@ -16,7 +16,7 @@ get:
         type: integer
       description: ID of the product
     - in: query
-      name: chainId
+      name: brandId
       required: true
       schema:
         type: integer

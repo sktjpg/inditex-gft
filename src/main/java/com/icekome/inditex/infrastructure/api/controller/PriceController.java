@@ -20,9 +20,9 @@ public record PriceController(
   public ResponseEntity<PriceControllerModel> findPrice(
       @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime applicationDate,
       @RequestParam long productId,
-      @RequestParam long chainId
+      @RequestParam long brandId
   ) {
-    final var price = priceRetriever.findPrice(applicationDate, productId, chainId);
+    final var price = priceRetriever.findPrice(applicationDate, productId, brandId);
     final var priceControllerModel = toControllerModel(price);
     return ResponseEntity.ok(priceControllerModel);
   }
@@ -30,7 +30,7 @@ public record PriceController(
   private PriceControllerModel toControllerModel(Price price) {
     return new PriceControllerModel(
         price.productId(),
-        price.chainId(),
+        price.brandId(),
         price.price(),
         price.currency(),
         price.startDate(),

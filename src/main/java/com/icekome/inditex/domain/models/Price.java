@@ -9,7 +9,7 @@ public record Price(
     LocalDateTime startDate,
     LocalDateTime endDate,
     Integer productList,
-    Long chainId,
+    Long brandId,
     BigDecimal price,
     String currency
 ) {

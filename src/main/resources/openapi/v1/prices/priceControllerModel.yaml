@@ -2,7 +2,7 @@ type: object
 properties:
   productId:
     type: integer
-  chainId:
+  brandId:
     type: integer
   price:
     type: number

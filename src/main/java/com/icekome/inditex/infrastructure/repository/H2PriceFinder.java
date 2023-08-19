@@ -7,9 +7,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Component;
 
 @Component
-public record H2PriceFinder(
-    PriceRepository priceRepository
-) implements PriceFinder {
+public record H2PriceFinder(PriceRepository priceRepository) implements PriceFinder {
 
   @Override
   public Optional<Price> findBy(LocalDateTime date, long productId, long brandId) {
@@ -25,7 +23,7 @@ public record H2PriceFinder(
         priceRepositoryModel.getStartDate(),
         priceRepositoryModel.getEndDate(),
         priceRepositoryModel.getPriceList(),
-        priceRepositoryModel.getProductId(),
+        priceRepositoryModel.getBrandId(),
         priceRepositoryModel.getPrice(),
         priceRepositoryModel.getCurrency()
     );

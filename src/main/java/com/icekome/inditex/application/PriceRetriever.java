@@ -10,23 +10,23 @@ import org.springframework.stereotype.Component;
 @Component
 public record PriceRetriever(PriceFinder priceFinder) {
 
-  public Price findPrice(LocalDateTime date, long productId, long chainId) {
-    throwExceptionIfNotValid(date, productId, chainId);
+  public Price findPrice(LocalDateTime date, long productId, long brandId) {
+    throwExceptionIfNotValid(date, productId, brandId);
     return priceFinder
-        .findBy(date, productId, chainId)
-        .orElseThrow(() -> notFoundException(date, productId, chainId));
+        .findBy(date, productId, brandId)
+        .orElseThrow(() -> notFoundException(date, productId, brandId));
   }
 
-  private NotFoundException notFoundException(LocalDateTime date, long productId, long chainId) {
+  private NotFoundException notFoundException(LocalDateTime date, long productId, long brandId) {
     return new NotFoundException("Not found any object with these inputs: "
         + "date: " + date
         + " - productId: " + productId
-        + " - chainId: " + chainId
+        + " - brandId: " + brandId
     );
   }
 
-  private void throwExceptionIfNotValid(LocalDateTime date, long productId, long chainId) {
-    if (date != null && productId >= 0 && chainId >= 0) {
+  private void throwExceptionIfNotValid(LocalDateTime date, long productId, long brandId) {
+    if (date != null && productId >= 0 && brandId >= 0) {
       return;
     }
 
@@ -36,8 +36,8 @@ public record PriceRetriever(PriceFinder priceFinder) {
       errors.add("productId must be positive");
     }
 
-    if (chainId < 0) {
-      errors.add("chainId must be positive");
+    if (brandId < 0) {
+      errors.add("brandId must be positive");
     }
 
     if (date == null) {
