@@ -14,7 +14,7 @@ public record H2PriceFinder(
   @Override
   public Optional<Price> findBy(LocalDateTime date, long productId, long brandId) {
     return priceRepository
-        .findByDateAndPriceListAndBrandId(date, productId, brandId)
+        .findByDateAndProductIdAndBrandId(date, productId, brandId)
         .map(this::toDomain);
   }
 

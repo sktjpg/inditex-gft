@@ -15,7 +15,7 @@ public interface PriceRepository extends JpaRepository<PriceRepositoryModel, Lon
       "AND p.priority = (SELECT MAX(p2.priority) FROM PriceRepositoryModel p2 " +
       "WHERE (p2.startDate <= :date AND p2.endDate >= :date) " +
       "AND p2.productId = :productId AND p2.brandId = :brandId)")
-  Optional<PriceRepositoryModel> findByDateAndPriceListAndBrandId(
+  Optional<PriceRepositoryModel> findByDateAndProductIdAndBrandId(
       LocalDateTime date,
       long productId,
       long brandId
