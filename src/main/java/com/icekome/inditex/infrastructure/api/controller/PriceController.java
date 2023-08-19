@@ -1,7 +1,7 @@
-package com.icekome.inditex.infrastructure.api;
+package com.icekome.inditex.infrastructure.api.controller;
 
 import com.icekome.inditex.application.PriceRetriever;
-import com.icekome.inditex.domain.Price;
+import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;

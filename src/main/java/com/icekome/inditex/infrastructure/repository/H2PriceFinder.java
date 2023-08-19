@@ -1,7 +1,7 @@
 package com.icekome.inditex.infrastructure.repository;
 
 import com.icekome.inditex.application.PriceFinder;
-import com.icekome.inditex.domain.Price;
+import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import org.springframework.stereotype.Component;

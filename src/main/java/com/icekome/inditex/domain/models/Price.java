@@ -1,4 +1,4 @@
-package com.icekome.inditex.domain;
+package com.icekome.inditex.domain.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

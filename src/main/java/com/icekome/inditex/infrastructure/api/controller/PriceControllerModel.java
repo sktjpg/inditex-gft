@@ -1,4 +1,4 @@
-package com.icekome.inditex.infrastructure.api;
+package com.icekome.inditex.infrastructure.api.controller;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
