@@ -1,5 +1,6 @@
 package com.icekome.inditex.infrastructure.api.errors;
 
+import com.icekome.inditex.domain.exceptions.IncorrectParametersException;
 import com.icekome.inditex.domain.exceptions.NotFoundException;
 import java.time.OffsetDateTime;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,17 @@ public class ControllerExceptionHandler {
         .body(new ErrorResponse(
             OffsetDateTime.now(),
             404,
+            ex.getMessage()
+        ));
+  }
+
+  @ExceptionHandler(IncorrectParametersException.class)
+  public ResponseEntity<ErrorResponse> handleIncorrect(IncorrectParametersException ex) {
+    return ResponseEntity
+        .status(HttpStatus.BAD_REQUEST)
+        .body(new ErrorResponse(
+            OffsetDateTime.now(),
+            400,
             ex.getMessage()
         ));
   }
