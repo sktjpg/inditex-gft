@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record PriceControllerModel(
-    Long productId,
-    Long brandId,
+    long productId,
+    long brandId,
     BigDecimal price,
     String currency,
     LocalDateTime startDate,

@@ -20,10 +20,10 @@ public class PriceRepositoryModel {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "price_seq_generator")
   @SequenceGenerator(name = "price_seq_generator", sequenceName = "price_seq", allocationSize = 1)
   @Column(name = "ID")
-  private Long id;
+  private long id;
 
   @Column(name = "BRAND_ID")
-  private Long brandId;
+  private long brandId;
 
   @Column(name = "START_DATE")
   private LocalDateTime startDate;
@@ -35,7 +35,7 @@ public class PriceRepositoryModel {
   private int priceList;
 
   @Column(name = "PRODUCT_ID")
-  private Long productId;
+  private long productId;
 
   @Column(name = "PRIORITY")
   private int priority;
