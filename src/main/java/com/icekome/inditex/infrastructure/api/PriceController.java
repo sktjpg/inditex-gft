@@ -3,7 +3,6 @@ package com.icekome.inditex.infrastructure.api;
 import com.icekome.inditex.application.PriceRetriever;
 import com.icekome.inditex.domain.Price;
 import java.time.LocalDateTime;
-import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,18 +17,14 @@ public record PriceController(
 ) {
 
   @GetMapping("/v1")
-  public ResponseEntity<List<PriceControllerModel>> findPrice(
+  public ResponseEntity<PriceControllerModel> findPrice(
       @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime applicationDate,
       @RequestParam long productId,
       @RequestParam long chainId
   ) {
-    return ResponseEntity.ok(
-        priceRetriever
-            .findPrice(applicationDate, productId, chainId)
-            .stream()
-            .map(this::toControllerModel)
-            .toList()
-    );
+    final var price = priceRetriever.findPrice(applicationDate, productId, chainId);
+    final var priceControllerModel = toControllerModel(price);
+    return ResponseEntity.ok(priceControllerModel);
   }
 
   private PriceControllerModel toControllerModel(Price price) {
