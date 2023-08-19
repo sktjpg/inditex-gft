@@ -10,8 +10,6 @@ public record PriceControllerModel(
     String currency,
     LocalDateTime startDate,
     LocalDateTime endDate,
-
     int priceList
 ) {
-
 }

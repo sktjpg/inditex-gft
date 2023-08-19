@@ -14,5 +14,4 @@ public record FlywayStarter(
   public void migrate() {
     flyway.migrate();
   }
-
 }

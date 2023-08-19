@@ -12,8 +12,6 @@ public record Price(
     long brandId,
     BigDecimal price,
     String currency,
-
     int priceList
 ) {
-
 }

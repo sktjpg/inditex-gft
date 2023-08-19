@@ -20,6 +20,4 @@ public interface PriceRepository extends JpaRepository<PriceRepositoryModel, Lon
       long productId,
       long brandId
   );
-
-
 }

@@ -20,7 +20,6 @@ public class DatabaseConfig {
   @Value("${spring.flyway.locations}")
   private String locations;
 
-
   @Bean
   public Flyway flyway() {
     return Flyway

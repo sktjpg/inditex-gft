@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/prices")
-public record PriceController(
-    PriceRetriever priceRetriever
-) {
+public record PriceController(PriceRetriever priceRetriever) {
 
   @GetMapping("/v1")
   public ResponseEntity<PriceControllerModel> findPrice(
@@ -38,5 +36,4 @@ public record PriceController(
         price.priceList()
     );
   }
-
 }

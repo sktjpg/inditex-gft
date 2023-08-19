@@ -7,5 +7,4 @@ import java.util.Optional;
 public interface PriceFinder {
 
   Optional<Price> findBy(LocalDateTime date, long productList, long brandId);
-
 }

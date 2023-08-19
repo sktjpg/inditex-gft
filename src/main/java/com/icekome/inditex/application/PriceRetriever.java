@@ -47,5 +47,4 @@ public record PriceRetriever(PriceFinder priceFinder) {
     String message = "The following params are not valid: " + String.join(" - ", errors);
     throw new BadParamsException(message);
   }
-
 }
