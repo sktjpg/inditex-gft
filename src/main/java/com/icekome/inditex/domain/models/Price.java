@@ -11,7 +11,9 @@ public record Price(
     int productList,
     long brandId,
     BigDecimal price,
-    String currency
+    String currency,
+
+    int priceList
 ) {
 
 }

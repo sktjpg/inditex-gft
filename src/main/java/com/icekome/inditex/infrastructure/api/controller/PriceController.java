@@ -34,7 +34,8 @@ public record PriceController(
         price.price(),
         price.currency(),
         price.startDate(),
-        price.endDate()
+        price.endDate(),
+        price.priceList()
     );
   }
 

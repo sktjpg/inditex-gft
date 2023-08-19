@@ -9,7 +9,9 @@ public record PriceControllerModel(
     BigDecimal price,
     String currency,
     LocalDateTime startDate,
-    LocalDateTime endDate
+    LocalDateTime endDate,
+
+    int priceList
 ) {
 
 }

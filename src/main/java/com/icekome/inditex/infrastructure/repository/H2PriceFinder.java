@@ -25,7 +25,8 @@ public record H2PriceFinder(PriceRepository priceRepository) implements PriceFin
         priceRepositoryModel.getPriceList(),
         priceRepositoryModel.getBrandId(),
         priceRepositoryModel.getPrice(),
-        priceRepositoryModel.getCurrency()
+        priceRepositoryModel.getCurrency(),
+        priceRepositoryModel.getPriceList()
     );
   }
 }
