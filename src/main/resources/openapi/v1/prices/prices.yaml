@@ -1,0 +1,32 @@
+get:
+  summary: Get prices
+  description: Retrieve prices based on application date, product ID, and chain ID.
+  parameters:
+    - in: query
+      name: applicationDate
+      required: true
+      schema:
+        type: string
+        format: date-time
+      description: Date of application for the price
+    - in: query
+      name: productId
+      required: true
+      schema:
+        type: integer
+      description: ID of the product
+    - in: query
+      name: chainId
+      required: true
+      schema:
+        type: integer
+      description: ID of the chain
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: priceControllerModel.yaml

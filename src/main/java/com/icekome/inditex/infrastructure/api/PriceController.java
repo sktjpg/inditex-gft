@@ -17,7 +17,7 @@ public record PriceController(
     PriceRetriever priceRetriever
 ) {
 
-  @GetMapping()
+  @GetMapping("/v1")
   public ResponseEntity<List<PriceControllerModel>> findPrice(
       @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime applicationDate,
       @RequestParam long productId,

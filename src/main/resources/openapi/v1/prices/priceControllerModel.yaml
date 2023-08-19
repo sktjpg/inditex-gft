@@ -1,0 +1,17 @@
+type: object
+properties:
+  productId:
+    type: integer
+  chainId:
+    type: integer
+  price:
+    type: number
+    format: double
+  currency:
+    type: string
+  startDate:
+    type: string
+    format: date-time
+  endDate:
+    type: string
+    format: date-time
