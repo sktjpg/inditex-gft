@@ -25,7 +25,7 @@ class PriceControllerTest {
   }
 
   @Test
-  public void testFindPrice_Success() {
+  public void shouldReturnExpectedPrice() {
     final var applicationDate = LocalDateTime.now();
     final var productId = 1L;
     final var brandId = 1L;
