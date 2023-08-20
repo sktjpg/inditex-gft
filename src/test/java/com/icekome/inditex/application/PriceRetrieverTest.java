@@ -28,8 +28,8 @@ class PriceRetrieverTest {
   @Test
   public void shouldReturnTheExpectedPrice() {
     final var date = LocalDateTime.of(2023, 12, 1, 0, 0, 0);
-    final var productId = 1;
-    final var brandId = 1;
+    final var productId = 1L;
+    final var brandId = 1L;
     final var expectedPrice = getPrice(date, productId, brandId);
 
     when(priceFinder.findBy(date, productId, brandId)).thenReturn(Optional.of(expectedPrice));
@@ -42,8 +42,8 @@ class PriceRetrieverTest {
   @Test
   public void shouldThrowNotFoundException() {
     final var date = LocalDateTime.now();
-    final var productId = 2;
-    final var brandId = 2;
+    final var productId = 2L;
+    final var brandId = 2L;
 
     when(priceFinder.findBy(date, productId, brandId)).thenReturn(Optional.empty());
 
@@ -59,7 +59,7 @@ class PriceRetrieverTest {
   }
 
 
-  private Price getPrice(LocalDateTime date, int productId, int brandId) {
+  private Price getPrice(LocalDateTime date, long productId, long brandId) {
     return new Price(
         1L,
         productId,
