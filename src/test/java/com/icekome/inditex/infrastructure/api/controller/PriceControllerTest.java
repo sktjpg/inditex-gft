@@ -68,5 +68,4 @@ class PriceControllerTest {
         1
     );
   }
-
 }

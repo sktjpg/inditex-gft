@@ -58,7 +58,6 @@ class PriceRetrieverTest {
     );
   }
 
-
   private Price getPrice(LocalDateTime date, long productId, long brandId) {
     return new Price(
         1L,

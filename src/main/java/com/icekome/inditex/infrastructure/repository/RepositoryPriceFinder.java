@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class H2PriceFinder implements PriceFinder {
+public class RepositoryPriceFinder implements PriceFinder {
 
   private final PriceRepository priceRepository;
 
