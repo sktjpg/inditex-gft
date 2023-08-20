@@ -15,3 +15,5 @@ properties:
   endDate:
     type: string
     format: date-time
+  priceList:
+    type: integer
