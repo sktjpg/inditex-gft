@@ -4,10 +4,14 @@ import com.icekome.inditex.application.PriceFinder;
 import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-public record H2PriceFinder(PriceRepository priceRepository) implements PriceFinder {
+@AllArgsConstructor
+public class H2PriceFinder implements PriceFinder {
+
+  private final PriceRepository priceRepository;
 
   @Override
   public Optional<Price> findBy(LocalDateTime date, long productId, long brandId) {

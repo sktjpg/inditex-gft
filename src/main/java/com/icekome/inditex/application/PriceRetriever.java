@@ -5,10 +5,14 @@ import com.icekome.inditex.domain.exceptions.NotFoundException;
 import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-public record PriceRetriever(PriceFinder priceFinder) {
+@AllArgsConstructor
+public class PriceRetriever {
+
+  private final PriceFinder priceFinder;
 
   public Price findPrice(LocalDateTime date, long productId, long brandId) {
     throwExceptionIfNotValid(date, productId, brandId);

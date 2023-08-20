@@ -3,6 +3,7 @@ package com.icekome.inditex.infrastructure.api.controller;
 import com.icekome.inditex.application.PriceRetriever;
 import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/prices")
-public record PriceController(PriceRetriever priceRetriever) {
+@AllArgsConstructor
+public class PriceController {
+
+  private final PriceRetriever priceRetriever;
 
   @GetMapping("/v1")
   public ResponseEntity<PriceControllerModel> findPrice(
