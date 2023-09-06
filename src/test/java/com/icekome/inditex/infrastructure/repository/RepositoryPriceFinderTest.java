@@ -32,7 +32,7 @@ class RepositoryPriceFinderTest {
     final var repositoryModel = getPriceRepositoryModel(date, productId, brandId);
     final var expectedPrice = getPrice(date, productId, brandId);
 
-    when(priceRepository.findByDateAndProductIdAndBrandId(date, productId, brandId))
+    when(priceRepository.findHighestPriorityByDateAndProductIdAndBrandId(date, productId, brandId))
         .thenReturn(Optional.of(repositoryModel));
 
     Optional<Price> actualPrice = repositoryPriceFinder.findBy(date, productId, brandId);
@@ -47,7 +47,7 @@ class RepositoryPriceFinderTest {
     final var productId = 123L;
     final var brandId = 456L;
 
-    when(priceRepository.findByDateAndProductIdAndBrandId(date, productId, brandId))
+    when(priceRepository.findHighestPriorityByDateAndProductIdAndBrandId(date, productId, brandId))
         .thenReturn(Optional.empty());
 
     Optional<Price> actualPrice = repositoryPriceFinder.findBy(date, productId, brandId);

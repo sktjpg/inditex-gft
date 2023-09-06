@@ -16,7 +16,7 @@ public class RepositoryPriceFinder implements PriceFinder {
   @Override
   public Optional<Price> findBy(LocalDateTime date, long productId, long brandId) {
     return priceRepository
-        .findByDateAndProductIdAndBrandId(date, productId, brandId)
+        .findHighestPriorityByDateAndProductIdAndBrandId(date, productId, brandId)
         .map(this::toDomain);
   }
 
