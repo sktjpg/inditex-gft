@@ -42,7 +42,7 @@ aspect of the architecture.
 
 Furthermore, on service initiation, administration of the prices table occurs. In the event of its
 existence, the table is expunged and then regenerated utilizing the data sourced from the initial
-prompt. This process is facilitated through the incorporation of Flyway.
+prompt. This process is facilitated through the incorporation of spring init.
 
 Lombok has been selectively employed to streamline various tasks, such as the creation of getters,
 setters, and constructors.
