@@ -1,6 +1,7 @@
 package com.icekome.inditex.infrastructure.api.controller;
 
 import com.icekome.inditex.application.PriceRetriever;
+import com.icekome.inditex.application.PriceRetrieverUseCase;
 import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class PriceController {
 
-  private final PriceRetriever priceRetriever;
+  private final PriceRetriever priceRetrieverUseCase;
 
   @GetMapping("/v1")
   public ResponseEntity<PriceControllerModel> findPrice(
@@ -24,7 +25,7 @@ public class PriceController {
       @RequestParam long productId,
       @RequestParam long brandId
   ) {
-    final var price = priceRetriever.findPrice(applicationDate, productId, brandId);
+    final var price = priceRetrieverUseCase.findPrice(applicationDate, productId, brandId);
     final var priceControllerModel = toControllerModel(price);
     return ResponseEntity.ok(priceControllerModel);
   }

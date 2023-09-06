@@ -14,15 +14,15 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PriceRetrieverTest {
+class PriceRetrieverUseCaseTest {
 
   private final PriceFinder priceFinder = mock(PriceFinder.class);
 
-  private PriceRetriever priceRetriever;
+  private PriceRetrieverUseCase priceRetrieverUseCase;
 
   @BeforeEach
   public void setUp() {
-    priceRetriever = new PriceRetriever(priceFinder);
+    priceRetrieverUseCase = new PriceRetrieverUseCase(priceFinder);
   }
 
   @Test
@@ -34,7 +34,7 @@ class PriceRetrieverTest {
 
     when(priceFinder.findBy(date, productId, brandId)).thenReturn(Optional.of(expectedPrice));
 
-    final var actualPrice = priceRetriever.findPrice(date, productId, brandId);
+    final var actualPrice = priceRetrieverUseCase.findPrice(date, productId, brandId);
 
     assertEquals(expectedPrice, actualPrice);
   }
@@ -47,14 +47,14 @@ class PriceRetrieverTest {
 
     when(priceFinder.findBy(date, productId, brandId)).thenReturn(Optional.empty());
 
-    assertThrows(NotFoundException.class, () -> priceRetriever.findPrice(date, productId, brandId));
+    assertThrows(NotFoundException.class, () -> priceRetrieverUseCase.findPrice(date, productId, brandId));
   }
 
   @Test
   public void shouldThrowBadParamsException() {
     assertThrows(
         BadParamsException.class,
-        () -> priceRetriever.findPrice(null, -2, -2)
+        () -> priceRetrieverUseCase.findPrice(null, -2, -2)
     );
   }
 

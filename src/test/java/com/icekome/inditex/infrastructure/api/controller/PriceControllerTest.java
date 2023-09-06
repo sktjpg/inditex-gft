@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.icekome.inditex.application.PriceRetriever;
+import com.icekome.inditex.application.PriceRetrieverUseCase;
 import com.icekome.inditex.domain.models.Price;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,13 +15,13 @@ import org.springframework.http.ResponseEntity;
 
 class PriceControllerTest {
 
-  private final PriceRetriever priceRetriever = mock(PriceRetriever.class);
+  private final PriceRetrieverUseCase priceRetrieverUseCase = mock(PriceRetrieverUseCase.class);
 
   private PriceController priceController;
 
   @BeforeEach
   public void setUp() {
-    priceController = new PriceController(priceRetriever);
+    priceController = new PriceController(priceRetrieverUseCase);
   }
 
   @Test
@@ -33,7 +33,7 @@ class PriceControllerTest {
     final var price = getPrice(applicationDate, productId, brandId);
     final var expectedModel = getPriceControllerModel(applicationDate, productId, brandId);
 
-    when(priceRetriever.findPrice(applicationDate, productId, brandId)).thenReturn(price);
+    when(priceRetrieverUseCase.findPrice(applicationDate, productId, brandId)).thenReturn(price);
 
     ResponseEntity<PriceControllerModel> response = priceController
         .findPrice(applicationDate, productId, brandId);
