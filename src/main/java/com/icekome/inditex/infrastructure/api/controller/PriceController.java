@@ -1,7 +1,6 @@
 package com.icekome.inditex.infrastructure.api.controller;
 
 import com.icekome.inditex.application.PriceRetriever;
-import com.icekome.inditex.application.PriceRetrieverUseCase;
 import com.icekome.inditex.domain.models.Price;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
